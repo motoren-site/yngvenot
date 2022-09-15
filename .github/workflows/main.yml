@@ -36,3 +36,9 @@ jobs:
         
     - name: Deploy to Kubernetes
       run: kubectl apply -f deployment.yml
+
+    - name: Deploy Service
+      run: kubectl apply -f service.yml
+
+    - name: Deploy Ingress
+      run: kubectl apply -f ingress.yml
