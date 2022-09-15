@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: yngvenot
-        image: registry.digitalocean.com/olsen/yngvenot
+        image: registry.digitalocean.com/olsen/yngvenot:latest
         ports:
         - containerPort: 80
