@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yngvenot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yngvenot
+  template:
+    metadata:
+      labels:
+        app: yngvenot
+    spec:
+      containers:
+      - name: yngvenot
+        image: yngvenot:latest
+        ports:
+        - containerPort: 80
