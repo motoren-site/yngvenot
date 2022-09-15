@@ -23,3 +23,13 @@ jobs:
     - name: Push to DO
       run: docker push registry.digitalocean.com/olsen/yngvenot:$(echo $GITHUB_SHA | head -c7)
       
+    - name: DigitalOcean Kubernetes
+      uses: matootie/dokube@v1.4.0
+      with:
+        # DigitalOcean Personal Access Token; Used to fetch latest Kubernetes Config.
+        personalAccessToken: ${{ secrets.DIGITAL_OCEAN_TOKEN }}
+        # The name of the DigitalOcean Kubernetes cluster that you plan to work with.
+        clusterName: k8s-miles
+        
+    - name: Deploy to Kubernetes
+      run: kubectl apply -f deployment.yml
